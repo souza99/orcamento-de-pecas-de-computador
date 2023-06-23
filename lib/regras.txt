@@ -1,0 +1,18 @@
+
+
+// Para cadastrar um produto, tem que vincular a uma empresa
+// Para cadastrar uma empresa deve-se informar o cnpj 
+// Para criar um orcamento deve se informar ao minimo 1 produto
+// Apos salvar o orcamento, deve ser feira o calculo dos produtos
+// O produto deve possuir um valor positivo
+// O produto não pode possuir o mesmo nome e mesma empresa
+
+
+-------------- FEITO ---------------
+
+ Criado o cadastro de empresa
+ Criado o cadastro de placa -> com view, dto, service e inteface
+
+ ------------- O QUE PODE SER FEITO ---------------
+
+ Cadastro de orcamento com lista de itens
