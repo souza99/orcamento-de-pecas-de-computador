@@ -1,8 +1,15 @@
-class PlacaDeVideoDto {
-  String? nome;
-  String? marca;
+class PlacaVideoDTO {
+  String? modelo;
   String? fabricante;
+  int? memoriaVRAM;
+  String? interface;
+  int? consumoEnergia;
 
-  PlacaDeVideoDto(
-      {required this.nome, required this.marca, required this.fabricante});
+  PlacaVideoDTO({
+    required this.modelo,
+    required this.fabricante,
+    required this.memoriaVRAM,
+    required this.interface,
+    required this.consumoEnergia,
+  });
 }

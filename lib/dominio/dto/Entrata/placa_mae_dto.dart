@@ -1,11 +1,11 @@
-class PlacaMae {
+class PlacaMaeDTO {
   String? soquete;
   String? modelo;
   String? fabricante;
   int? slotMemoria;
   int? slotExpancaoTipo;
 
-  PlacaMae(
+  PlacaMaeDTO(
       {required this.soquete,
       required this.modelo,
       required this.fabricante,

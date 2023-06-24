@@ -1,4 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:orcamento/dominio/dto/Entrata/placa_mae_dto.dart';
+
+import 'package:flutter/material.dart';
+import 'package:orcamento/dominio/dto/Entrata/placa_mae_dto.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Cadastro de Placa-Mãe',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: PlacaMaeCadastroScreen(),
+    );
+  }
+}
 
 class PlacaMaeCadastroScreen extends StatefulWidget {
   @override
@@ -8,7 +29,7 @@ class PlacaMaeCadastroScreen extends StatefulWidget {
 class _PlacaMaeCadastroScreenState extends State<PlacaMaeCadastroScreen> {
   final _formKey = GlobalKey<FormState>();
 
-  String? socket;
+  String? soquete;
   String? modelo;
   String? fabricante;
   int? slotMemoria;
@@ -27,7 +48,7 @@ class _PlacaMaeCadastroScreenState extends State<PlacaMaeCadastroScreen> {
           child: Column(
             children: [
               TextFormField(
-                decoration: InputDecoration(labelText: 'Socket'),
+                decoration: InputDecoration(labelText: 'Soquete'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Campo obrigatório';
@@ -35,7 +56,7 @@ class _PlacaMaeCadastroScreenState extends State<PlacaMaeCadastroScreen> {
                   return null;
                 },
                 onSaved: (value) {
-                  socket = value;
+                  soquete = value;
                 },
               ),
               TextFormField(
@@ -95,8 +116,8 @@ class _PlacaMaeCadastroScreenState extends State<PlacaMaeCadastroScreen> {
                     _formKey.currentState!.save();
                     // Aqui você pode realizar o processamento dos dados,
                     // como criar uma instância de PlacaMae com os valores informados.
-                    PlacaMae placaMae = PlacaMae(
-                      socket: socket!,
+                    PlacaMaeDTO placaMae = PlacaMaeDTO(
+                      soquete: soquete!,
                       modelo: modelo!,
                       fabricante: fabricante!,
                       slotMemoria: slotMemoria!,
@@ -113,26 +134,5 @@ class _PlacaMaeCadastroScreenState extends State<PlacaMaeCadastroScreen> {
         ),
       ),
     );
-  }
-}
-
-class PlacaMae {
-  String? socket;
-  String? modelo;
-  String? fabricante;
-  int? slotMemoria;
-  int? slotExpancaoTipo;
-
-  PlacaMae({
-    required this.socket,
-    required this.modelo,
-    required this.fabricante,
-    required this.slotMemoria,
-    required this.slotExpancaoTipo,
-  });
-
-  @override
-  String toString() {
-    return 'PlacaMae{socket: $socket, modelo: $modelo, fabricante: $fabricante, slotMemoria: $slotMemoria, slotExpancaoTipo: $slotExpancaoTipo}';
   }
 }

@@ -1,4 +1,4 @@
-class Processador {
+class ProcessadorDTO {
   String? modelo;
   String? fabricante;
   int? nucleos;
@@ -7,7 +7,7 @@ class Processador {
   String? soquete;
   String? suporteAInstrucoes;
 
-  Processador(
+  ProcessadorDTO(
       {required this.modelo,
       required this.fabricante,
       required this.nucleos,
