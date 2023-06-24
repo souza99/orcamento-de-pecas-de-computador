@@ -5,6 +5,7 @@
             "soquete": "AMD5",
             "fabricante": "ASRock",
             "slotMemoria": "4",
+            "slotExpancaoTipo": "dd5",
             "processadoresCompativeis": [
                 {
                     "nome": "AMD Ryzen 9 7950X3D"
@@ -24,6 +25,7 @@
             "soquete": "AMD4",
             "fabricante": "ASUSTeK Computer",
             "slotMemoria": "4",
+            "slotExpancaoTipo": "dd4",
             "processadoresCompativeis": [
                 {
                     "nome": "AMD Ryzen 5 5600"
