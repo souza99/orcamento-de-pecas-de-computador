@@ -1,0 +1,85 @@
+{
+    "list": [
+        {
+            "modelo": "AMD Ryzen 9 7950X3D",
+            "fabricante": "AMD",
+            "nucleos": "16",
+            "frequenciaDeClocks": "4.2GHz",
+            "arquitetura": "",
+            "soquete": "AMD5",
+            "suporteAInstrucoes": "Liquid cooler recommended for optimal performance",
+            "palcasMaeCompativeis": [
+                {
+                    "nome": "AMD X670E"
+                },
+                {
+                    "nome": "AMD X670"
+                },
+                {
+                    "nome": "AMD B650E"
+                },
+                {
+                    "nome": "AMD B650"
+                }
+            ],
+            "memoriasRamCompativeis": [
+                {
+                    "nome": "Kingston FURY Beast DDR5 Memory"
+                }
+            ]
+        },
+        {
+            "modelo": "AMD Ryzen 7 7700X",
+            "fabricante": "AMD",
+            "nucleos": "8",
+            "frequenciaDeClocks": "4.5GHz",
+            "arquitetura": "",
+            "soquete": "AMD5",
+            "suporteAInstrucoes": "",
+            "palcasMaeCompativeis": [
+                {
+                    "nome": "AMD X670E"
+                },
+                {
+                    "nome": "AMD X670"
+                },
+                {
+                    "nome": "AMD B650E"
+                },
+                {
+                    "nome": "AMD B650"
+                }
+            ],
+            "memoriasRamCompativeis": [
+                {
+                    "nome": "Kingston FURY Beast DDR5 Memory"
+                }
+            ]
+        },
+        {
+            "modelo": "AMD Ryzen 5 5600",
+            "fabricante": "AMD",
+            "nucleos": "6",
+            "frequenciaDeClocks": "3.5GHz",
+            "arquitetura": "",
+            "soquete": "AMD4",
+            "suporteAInstrucoes": "",
+            "palcasMaeCompativeis": [
+                {
+                    "nome": "AMD X570"
+                },
+                {
+                    "nome": "AMD X470"
+                }
+            ],
+            "memoriasRamCompativeis": [
+                {
+                    "nome": "XPG Z1 DDR4 DRAM Module"
+                },
+                {
+                    "nome": "F4-3200C14Q-32GTZ"
+                }
+            ]
+        }
+    ]
+}

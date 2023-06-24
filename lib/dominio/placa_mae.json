@@ -1,0 +1,41 @@
+{
+    "list": [
+        {
+            "modelo": "X670E Taichi",
+            "soquete": "AMD5",
+            "fabricante": "ASRock",
+            "slotMemoria": "4",
+            "slotExpancaoTipo": "dd5",
+            "processadoresCompativeis": [
+                {
+                    "nome": "AMD Ryzen 9 7950X3D"
+                },
+                {
+                    "nome": "AMD Ryzen 7 7700X"
+                }
+            ],
+            "memoriasRamCompativeis": [
+                {
+                    "nome": "Kingston FURY Beast DDR5 Memory"
+                }
+            ]
+        },
+        {
+            "modelo": "TUF GAMING X570-PLUS",
+            "soquete": "AMD4",
+            "fabricante": "ASUSTeK Computer",
+            "slotMemoria": "4",
+            "slotExpancaoTipo": "dd4",
+            "processadoresCompativeis": [
+                {
+                    "nome": "AMD Ryzen 5 5600"
+                }
+            ],
+            "memoriasRamCompativeis": [
+                {
+                    "nome": "XPG Z1 DDR4 DRAM Module"
+                }
+            ]
+        }
+    ]
+}
