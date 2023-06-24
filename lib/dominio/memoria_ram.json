@@ -1,0 +1,46 @@
+{
+    "list": [
+        {
+            "modelo": "Kingston FURY Beast DDR5 Memory",
+            "tipo": "ddr5",
+            "frequencia": "6000MHz",
+            "processadoresCompativeis": [
+                {
+                    "nome": "AMD Ryzen 9 7950X3D"
+                },
+                {
+                    "nome": "AMD Ryzen 7 7700X"
+                }
+            ],
+            "palcasMaeCompativeis": [
+                {
+                    "nome": "AMD X670E"
+                },
+                {
+                    "nome": "AMD X670"
+                },
+                {
+                    "nome": "AMD B650E"
+                },
+                {
+                    "nome": "AMD B650"
+                }
+            ]
+        },
+        {
+            "modelo": "XPG Z1 DDR4 DRAM Module",
+            "tipo": "ddr4",
+            "frequencia": "3200MHz",
+            "processadoresCompativeis": [
+                {
+                    "nome": "AMD Ryzen 5 5600"
+                }
+            ],
+            "palcasMaeCompativeis": [
+                {
+                    "nome": "AMD X570"
+                }
+            ]
+        }
+    ]
+}
