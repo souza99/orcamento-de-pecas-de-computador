@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:orcamento/dominio/dto/Entrata/empresa_dto_entrada.dart';
 import 'package:orcamento/dominio/empresa.dart';
 
+import 'adaptador/empresa_cadastro_web.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -23,7 +25,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
 
   final String title;
 
@@ -53,10 +54,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   var empresa = EmpresaDtoEntrada();
                   empresa.nome = "Empresa de teste";
                   empresa.cnpj = "22.673.837/0001-34";
-                  Empresa empresaDominio = Empresa();
-                  var resultado = empresaDominio.salvar(empresa);
+                  EmpresaCadsatroWeb empresaCadsatroWeb = EmpresaCadsatroWeb();
+                  var resultado = empresaCadsatroWeb.salvar(empresa);
+                  // showDialog(context: context, builder: (BuildContext context) {
+
+                  // });
                 },
-                child: const Text('enviar'))
+                child: const Text('enviar')),
           ],
         ),
       ),
