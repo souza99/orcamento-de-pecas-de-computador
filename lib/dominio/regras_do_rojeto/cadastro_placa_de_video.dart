@@ -5,10 +5,10 @@ import 'package:orcamento/dominio/dto/Saida/placa_de_video_orcamento_dto.dart';
 import 'package:orcamento/dominio/porta/secondaria/i_placa_de_video_orcamento.dart';
 
 class CadastroPlacaDeVideo {
-  PlacaDeVideoDto placaDeVideoDto;
-  IPlacaDeVideoOrcamento placaDeVideoOrcamento;
+  late PlacaDeVideoDto placaDeVideoDto;
+  late IPlacaDeVideoOrcamento placaDeVideoOrcamento;
 
-  CadastroPlacaDeVideo({required this.placaDeVideoDto}) {}
+  // CadastroPlacaDeVideo({required this.placaDeVideoDto}) {}
 
   PlacaDeVideoDtoResposta cadastroProduto() {
     if (placaDeVideoDto.marca == '')
