@@ -1,10 +1,8 @@
 import "dart:io";
-import 'package:orcamento/dao/empresa_dao.dart';
+import 'package:orcamento/adaptador/empresa_dao.dart';
 import 'package:orcamento/dominio/dto/Entrata/empresa_dto_entrada.dart';
 import 'package:orcamento/dominio/dto/Saida/empresa_dto_saida.dart';
-
-import '../interface_entrada/i_empresa_entrada.dart';
-import '../interface_saida/i_empresa_saida.dart';
+import 'package:orcamento/dominio/porta/secondaria/i_empresa_saida.dart';
 
 class Empresa {
   int? id;
@@ -38,12 +36,11 @@ class Empresa {
 
   void validarEmpresa(Empresa empresa) {
     if (empresa == null) throw Exception("Algo deu errado!");
-    
+
     if (empresa.cnpj!.isEmpty) {
       throw Exception("Ao CNPJ é obrigatório");
     } else if (empresa.nome!.isEmpty) {
       throw Exception("O nome da empresa é obrigatório");
-    }    
+    }
   }
-
 }
