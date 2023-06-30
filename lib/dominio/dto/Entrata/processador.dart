@@ -2,7 +2,7 @@ class ProcessadorDTO {
   String? modelo;
   String? fabricante;
   int? nucleos;
-  bool? frequenciaDeClocks;
+  String? frequenciaDeClocks;
   String? arquitetura;
   String? soquete;
   String? suporteAInstrucoes;

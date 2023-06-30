@@ -3,7 +3,7 @@ class PlacaMaeDTO {
   String? modelo;
   String? fabricante;
   int? slotMemoria;
-  int? slotExpancaoTipo;
+  String? slotExpancaoTipo;
   bool? suporteVideoIntegrado;
 
   PlacaMaeDTO(
