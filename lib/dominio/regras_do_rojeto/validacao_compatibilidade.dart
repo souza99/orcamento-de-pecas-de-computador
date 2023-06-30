@@ -30,6 +30,11 @@ class ValidacaoCompatibilidade {
           'Os soquetes da placa mae e do processador, não sao compativeis';
     }
 
+    if (memoria!.quantidade! < placaMae!.slotMemoria!) {
+      retornoMensagem +=
+          'A quantidade de módulos de memória excede os slots disponíveis na placa mãe';
+    }
+
     //criando retorno
     ComparadorCompatibilidadeRetorno retornoComparacao =
         ComparadorCompatibilidadeRetorno(
