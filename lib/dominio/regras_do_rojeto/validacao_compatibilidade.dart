@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:orcamento/dominio/dto/Entrata/memoria_dto.dart';
 import 'package:orcamento/dominio/dto/Entrata/placa_de_video_dto.dart';
@@ -44,6 +45,7 @@ class ValidacaoCompatibilidade {
     }
 
     // Verificação de compatibilidade com base no JSON
+
     final jsonData = '''{
       "list": [
         {
@@ -86,6 +88,10 @@ class ValidacaoCompatibilidade {
       ]
     }''';
 
+    var jsonPlacaMae = this.readJsonFile("lib\dominio\placa_mae.json");
+    var jsonMemoria = this.readJsonFile("lib\dominio\memoria_ram.json");
+    var jsonProcessador = this.readJsonFile("lib\dominio\processaores.json");
+
     final jsonMap = json.decode(jsonData);
 
     if (jsonMap.containsKey('list')) {
@@ -125,5 +131,11 @@ class ValidacaoCompatibilidade {
             mensagem: retornoMensagem, codigoOrcamento: '');
 
     return retornoComparacao;
+  }
+
+  Future<List<Map>> readJsonFile(String filePath) async {
+    var input = await File(filePath).readAsString();
+    var map = jsonDecode(input);
+    return map['users'];
   }
 }
