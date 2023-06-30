@@ -1,6 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:js';
 
+import 'package:flutter/material.dart';
+import 'package:mailer/mailer.dart';
 import 'package:orcamento/dominio/dto/Entrata/memoria_dto.dart';
 import 'package:orcamento/dominio/dto/Entrata/placa_de_video_dto.dart';
 import 'package:orcamento/dominio/dto/Entrata/placa_mae_dto.dart';
@@ -137,5 +140,37 @@ class ValidacaoCompatibilidade {
     var input = await File(filePath).readAsString();
     var map = jsonDecode(input);
     return map['users'];
+  }
+
+  Future sendEmail(String content) async {
+    final email = 'jpfsouza99@gmail.com';
+
+    final message = Message()
+      ..from = Address(email, 'joao pedro')
+      ..recipients = ['jpfsouza99@gmail.com']
+      ..subject = 'Bom dia!'
+      ..text = content;
+
+    try {
+      await send(message);
+
+      showSnackBar('Email enviado com sucesso!');
+    } on MailerException catch (e) {
+      print(e);
+    }
+  }
+
+  void showSnackBar(BuildContext context, String text) {
+    final snackBar = SnackBar(
+      content: Text(
+        text,
+        style: TextStyle(fontSize: 20),
+      ),
+      backgroundColor: Colors.green,
+    );
+
+    ScaffoldMessenger.of(context)
+      ..removeCurrentSnackBar()
+      ..showMaterialBanner(snackBar);
   }
 }
