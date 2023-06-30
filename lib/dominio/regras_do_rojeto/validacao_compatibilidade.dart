@@ -35,6 +35,11 @@ class ValidacaoCompatibilidade {
           'A quantidade de módulos de memória excede os slots disponíveis na placa mãe';
     }
 
+    if (placaMae!.suporteVideoIntegrado == true && placaVideo != null) {
+      retornoMensagem +=
+          'A placa mãe possui suporte a vídeo integrado, mas uma placa de vídeo dedicada foi especificada';
+    }
+
     //criando retorno
     ComparadorCompatibilidadeRetorno retornoComparacao =
         ComparadorCompatibilidadeRetorno(
