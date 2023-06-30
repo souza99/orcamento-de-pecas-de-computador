@@ -5,18 +5,23 @@ import 'dart:js';
 import 'package:flutter/material.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server/gmail.dart';
+import 'package:orcamento/adaptador/envia_email_orcamento.dart';
 import 'package:orcamento/dominio/dto/Entrata/envia_email_orcamento_dto.dart';
 import 'package:orcamento/dominio/dto/Entrata/memoria_dto.dart';
 import 'package:orcamento/dominio/dto/Entrata/placa_de_video_dto.dart';
 import 'package:orcamento/dominio/dto/Entrata/placa_mae_dto.dart';
 import 'package:orcamento/dominio/dto/Entrata/processador.dart';
 import 'package:orcamento/dominio/dto/Saida/validador_compatibilidade.dart';
+import 'package:orcamento/dominio/porta/secondaria/i_envia_email_orcamento.dart';
 
 class ValidacaoCompatibilidade {
   MemoriaDTO? memoria;
   PlacaMaeDTO? placaMae;
   ProcessadorDTO? processador;
   PlacaVideoDTO? placaVideo;
+  EnviaEmailOrcamentoDTO? emailEnviado;
+
+  IEnviaEmailOrcamento enviaemails = EnviaEmailOrcamento();
 
   ValidacaoCompatibilidade(
       {required this.memoria,
@@ -136,7 +141,7 @@ class ValidacaoCompatibilidade {
             mensagem: retornoMensagem, codigoOrcamento: '');
 
     if (retornoMensagem == '') {
-      // enviarEmail();
+      enviaEmail(emailEnviado!);
     }
 
     return retornoComparacao;
@@ -148,23 +153,7 @@ class ValidacaoCompatibilidade {
     return map['users'];
   }
 
-  void enviarEmail(EnviaEmailOrcamentoDTO infoenviaemail) async {
-    String username = 'jpfsouza99@gmail.com';
-    String password = 'jpfsouza99';
-
-    final smtpServer = gmail(username, password);
-
-    final message = Message()
-      ..from = Address(username)
-      ..recipients.add(infoenviaemail.emailDestinatario)
-      ..subject = infoenviaemail.assunto
-      ..text = infoenviaemail.corpo;
-
-    try {
-      final sendReport = await send(message, smtpServer);
-      print('Email enviado: ${sendReport.toString()}');
-    } catch (e) {
-      print('Erro ao enviar o email: $e');
-    }
+  void enviaEmail(EnviaEmailOrcamentoDTO emailEnviado) {
+    enviaemails.enviarEmail(emailEnviado);
   }
 }
