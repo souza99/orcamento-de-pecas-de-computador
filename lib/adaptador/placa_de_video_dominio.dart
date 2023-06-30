@@ -10,7 +10,7 @@ class PlacaDeVideoDominio implements ICadastrarPlacaDeVideo {
   CadastroPlacaDeVideo cadastro;
 
   PlacaDeVideoDominio({required this.placaDeVideoDto})
-      : cadastro = CadastroPlacaDeVideo(placaDeVideoDto: placaDeVideoDto);
+      : cadastro = CadastroPlacaDeVideo();
 
   @override
   Future<PlacaDeVideoDtoResposta> retornaCadastro() async {
