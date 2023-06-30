@@ -1,8 +1,8 @@
 import "dart:io";
-import 'package:orcamento/dao/empresa_dao.dart';
 import 'package:orcamento/dominio/dto/Entrata/empresa_dto_entrada.dart';
 import 'package:orcamento/dominio/dto/Saida/empresa_dto_saida.dart';
 import 'package:orcamento/dominio/porta/secondaria/i_empresa_saida.dart';
+import '../adaptador/empresa_dao.dart';
 
 class Empresa {
   int? id;

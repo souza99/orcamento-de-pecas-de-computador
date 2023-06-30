@@ -56,9 +56,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   empresa.cnpj = "22.673.837/0001-34";
                   EmpresaCadsatroWeb empresaCadsatroWeb = EmpresaCadsatroWeb();
                   var resultado = empresaCadsatroWeb.salvar(empresa);
-                  // showDialog(context: context, builder: (BuildContext context) {
 
-                  // });
+                  print(resultado);
                 },
                 child: const Text('enviar')),
           ],
