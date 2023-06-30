@@ -4,6 +4,8 @@ import 'dart:js';
 
 import 'package:flutter/material.dart';
 import 'package:mailer/mailer.dart';
+import 'package:mailer/smtp_server/gmail.dart';
+import 'package:orcamento/dominio/dto/Entrata/envia_email_orcamento_dto.dart';
 import 'package:orcamento/dominio/dto/Entrata/memoria_dto.dart';
 import 'package:orcamento/dominio/dto/Entrata/placa_de_video_dto.dart';
 import 'package:orcamento/dominio/dto/Entrata/placa_mae_dto.dart';
@@ -133,6 +135,10 @@ class ValidacaoCompatibilidade {
         ComparadorCompatibilidadeRetorno(
             mensagem: retornoMensagem, codigoOrcamento: '');
 
+    if (retornoMensagem == '') {
+      // enviarEmail();
+    }
+
     return retornoComparacao;
   }
 
@@ -142,35 +148,23 @@ class ValidacaoCompatibilidade {
     return map['users'];
   }
 
-  Future sendEmail(String content) async {
-    final email = 'jpfsouza99@gmail.com';
+  void enviarEmail(EnviaEmailOrcamentoDTO infoenviaemail) async {
+    String username = 'jpfsouza99@gmail.com';
+    String password = 'jpfsouza99';
+
+    final smtpServer = gmail(username, password);
 
     final message = Message()
-      ..from = Address(email, 'joao pedro')
-      ..recipients = ['jpfsouza99@gmail.com']
-      ..subject = 'Bom dia!'
-      ..text = content;
+      ..from = Address(username)
+      ..recipients.add(infoenviaemail.emailDestinatario)
+      ..subject = infoenviaemail.assunto
+      ..text = infoenviaemail.corpo;
 
     try {
-      await send(message);
-
-      showSnackBar('Email enviado com sucesso!');
-    } on MailerException catch (e) {
-      print(e);
+      final sendReport = await send(message, smtpServer);
+      print('Email enviado: ${sendReport.toString()}');
+    } catch (e) {
+      print('Erro ao enviar o email: $e');
     }
-  }
-
-  void showSnackBar(BuildContext context, String text) {
-    final snackBar = SnackBar(
-      content: Text(
-        text,
-        style: TextStyle(fontSize: 20),
-      ),
-      backgroundColor: Colors.green,
-    );
-
-    ScaffoldMessenger.of(context)
-      ..removeCurrentSnackBar()
-      ..showMaterialBanner(snackBar);
   }
 }
