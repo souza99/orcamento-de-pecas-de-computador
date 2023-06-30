@@ -6,6 +6,7 @@ class ProcessadorDTO {
   String? arquitetura;
   String? soquete;
   String? suporteAInstrucoes;
+  String? nome;
 
   ProcessadorDTO(
       {required this.modelo,
@@ -14,5 +15,6 @@ class ProcessadorDTO {
       required this.frequenciaDeClocks,
       required this.arquitetura,
       required this.soquete,
-      required this.suporteAInstrucoes}) {}
+      required this.suporteAInstrucoes,
+      required this.nome}) {}
 }
