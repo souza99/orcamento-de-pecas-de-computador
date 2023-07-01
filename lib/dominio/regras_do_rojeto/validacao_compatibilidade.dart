@@ -61,8 +61,8 @@ class ValidacaoCompatibilidade {
             mensagem: retornoMensagem, codigoOrcamento: '');
 
     if (retornoMensagem == '') {
-      emailEnviado?.corpo = geraEmail();
-      enviaEmail(emailEnviado!);
+      emailEnviado.corpo = geraEmail();
+      enviaEmail(emailEnviado);
     }
 
     return retornoComparacao;
