@@ -121,7 +121,7 @@ class _PlacaMaeCadastroScreenState extends State<PlacaMaeCadastroScreen> {
                       modelo: modelo!,
                       fabricante: fabricante!,
                       slotMemoria: slotMemoria!,
-                      slotExpancaoTipo: slotExpancaoTipo!,
+                      slotExpancaoTipo: slotExpancaoTipo!.toString(),
                       suporteVideoIntegrado: true,
                     );
                     // Exemplo: salvar a instância em um banco de dados ou enviar para um servidor.

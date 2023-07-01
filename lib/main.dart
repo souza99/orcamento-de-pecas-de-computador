@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:orcamento/adaptador/compara_pecas_envia_email.dart';
 import 'package:orcamento/dominio/dto/Entrata/empresa_dto_entrada.dart';
+import 'package:orcamento/dominio/dto/Entrata/envia_email_orcamento_dto.dart';
 import 'package:orcamento/dominio/empresa.dart';
+import 'package:orcamento/dominio/dto/Entrata/placa_de_video_dto.dart';
+import './dominio/constantes.dart';
 
 import 'adaptador/empresa_cadastro_web.dart';
 
@@ -60,6 +64,26 @@ class _MyHomePageState extends State<MyHomePage> {
                   print(resultado);
                 },
                 child: const Text('enviar')),
+            ElevatedButton(
+                onPressed: () {
+                  ComparaPecasEnviaEmail comparaPecasEnviaEmail =
+                      ComparaPecasEnviaEmail();
+                  EnviaEmailOrcamentoDTO emailOrcamentoDTO =
+                      EnviaEmailOrcamentoDTO(
+                          assunto: "Comparar",
+                          corpo: "Oi",
+                          emailDestinatario: "matheus.vinicius77@gmail.com");
+                  PlacaVideoDTO placaVideoDTO = PlacaVideoDTO(
+                    consumoEnergia: 30,
+                    fabricante: "Asus",
+                    interface: "USB",
+                    memoriaVRAM: 32,
+                    modelo: "GTX 1660",
+                  );
+                  comparaPecasEnviaEmail.enviarComparacao(emailOrcamentoDTO,
+                      memoria, processador, placaMae, placaVideoDTO);
+                },
+                child: const Text('orçamento')),
           ],
         ),
       ),
