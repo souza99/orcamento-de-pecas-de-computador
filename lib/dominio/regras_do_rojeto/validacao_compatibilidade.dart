@@ -1,7 +1,10 @@
+import 'dart:collection';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:js';
+import 'dart:math';
 
+import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server/gmail.dart';
@@ -141,6 +144,7 @@ class ValidacaoCompatibilidade {
             mensagem: retornoMensagem, codigoOrcamento: '');
 
     if (retornoMensagem == '') {
+      emailEnviado?.corpo = geraEmail();
       enviaEmail(emailEnviado!);
     }
 
@@ -153,7 +157,46 @@ class ValidacaoCompatibilidade {
     return map['users'];
   }
 
+  String gerarHash() {
+    const caracteresPermitidos =
+        'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    final random = Random();
+    final caracteresSelecionados = HashSet<String>();
+    final buffer = StringBuffer();
+
+    while (caracteresSelecionados.length < 16) {
+      final indice = random.nextInt(caracteresPermitidos.length);
+      final caracter = caracteresPermitidos[indice];
+
+      if (caracteresSelecionados.contains(caracter)) {
+        continue; // Ignora caracteres repetidos
+      }
+
+      caracteresSelecionados.add(caracter);
+      buffer.write(caracter);
+    }
+
+    return buffer.toString();
+  }
+
   void enviaEmail(EnviaEmailOrcamentoDTO emailEnviado) {
     enviaemails.enviarEmail(emailEnviado);
+  }
+
+  String geraEmail() {
+    String identificadorOrcamento = gerarHash();
+    String htmlEmail = '''
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Orcamento Criado</title>
+    </head>
+    <body>
+      <h1>Orcamento Criado</h1>
+      <p>Seu orçamento com número <strong>$identificadorOrcamento</strong> foi criado com sucesso!</p>
+    </body>
+    </html>
+  ''';
+    return htmlEmail;
   }
 }
