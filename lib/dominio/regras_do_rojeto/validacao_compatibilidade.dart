@@ -23,13 +23,14 @@ class ValidacaoCompatibilidade {
   ProcessadorDTO? processador;
   PlacaVideoDTO? placaVideo;
 
-  IEnviaEmailOrcamento enviaemails = EnviaEmailOrcamento();
+  IEnviaEmailOrcamento enviaemails;
 
   ValidacaoCompatibilidade(
       {required this.memoria,
       required this.placaMae,
       required this.processador,
-      required this.placaVideo});
+      required this.placaVideo,
+      required this.enviaemails});
 
   ComparadorCompatibilidadeRetorno comparadorDePecas(
       EnviaEmailOrcamentoDTO emailEnviado) {

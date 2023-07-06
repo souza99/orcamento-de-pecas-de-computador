@@ -7,11 +7,12 @@ import 'package:orcamento/dominio/dto/Saida/validador_compatibilidade.dart';
 import 'package:orcamento/dominio/porta/primaria/i_comparacao_entrada.dart';
 import 'package:orcamento/dominio/porta/secondaria/i_empresa_saida.dart';
 import 'package:orcamento/dominio/regras_do_rojeto/validacao_compatibilidade.dart';
+import 'package:orcamento/dominio/validacao_compatibilidade_aplicacao.dart';
 
 import '../dominio/dto/Entrata/envia_email_orcamento_dto.dart';
 
 class ComparaPecasEnviaEmail implements IComparacaoEntrada {
-  late ValidacaoCompatibilidade validacaoCompatibilidade;
+  late ValidacaoCompatibilidadeAplicacao validacaoCompatibilidade;
 
   @override
   ComparadorCompatibilidadeRetorno enviarComparacao(
@@ -21,7 +22,7 @@ class ComparaPecasEnviaEmail implements IComparacaoEntrada {
     PlacaMaeDTO placaMaeDTO,
     PlacaVideoDTO placaVideoDTO,
   ) {
-    validacaoCompatibilidade = ValidacaoCompatibilidade(
+    validacaoCompatibilidade = ValidacaoCompatibilidadeAplicacao(
         memoria: memoriaDTO,
         placaMae: placaMaeDTO,
         placaVideo: placaVideoDTO,
