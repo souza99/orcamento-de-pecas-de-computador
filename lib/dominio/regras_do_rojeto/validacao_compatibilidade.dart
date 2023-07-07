@@ -1,7 +1,6 @@
 import 'dart:collection';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:js';
 import 'dart:math';
 
 import 'package:crypto/crypto.dart';
@@ -61,7 +60,7 @@ class ValidacaoCompatibilidade {
         ComparadorCompatibilidadeRetorno(
             mensagem: retornoMensagem, codigoOrcamento: '');
 
-    if (retornoMensagem == '') {
+    if (retornoMensagem != '') {
       emailEnviado.corpo = geraEmail();
       enviaEmail(emailEnviado);
     }

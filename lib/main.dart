@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       EnviaEmailOrcamentoDTO(
                           assunto: "Comparar",
                           corpo: "Oi",
-                          emailDestinatario: "matheus.vinicius77@gmail.com");
+                          emailDestinatario: "jpfsouza99@gmail.com");
                   PlacaVideoDTO placaVideoDTO = PlacaVideoDTO(
                     consumoEnergia: 30,
                     fabricante: "Asus",

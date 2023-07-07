@@ -6,22 +6,22 @@ import 'package:orcamento/dominio/porta/secondaria/i_envia_email_orcamento.dart'
 class EnviaEmailOrcamento implements IEnviaEmailOrcamento {
   @override
   Future<void> enviarEmail(EnviaEmailOrcamentoDTO infoenviaemail) async {
-    String username = 'jpfsouza99@gmail.com';
-    String password = 'jpfsouza99';
-
-    final smtpServer = gmail(username, password);
-
-    final message = Message()
-      ..from = Address(username)
-      ..recipients.add(infoenviaemail.emailDestinatario)
-      ..subject = infoenviaemail.assunto
-      ..text = infoenviaemail.corpo;
-
     try {
-      final sendReport = await send(message, smtpServer);
+      String username = 'joaopedroferreiradesouza99@gmail.com';
+
+      final message = Message();
+      message.subject = infoenviaemail.assunto;
+      message.text = infoenviaemail.corpo;
+      message.from = Address(username.toString());
+      message.recipients.add(infoenviaemail.emailDestinatario);
+      var smtpServer =
+          await gmailSaslXoauth2(username.toString(), 'stqymdzkdhxalviz');
+
+      var sendReport = await send(message, smtpServer);
+
       print('Email enviado: ${sendReport.toString()}');
     } catch (e) {
-      print('Erro ao enviar o email: $e');
+      print('${e.toString()}');
     }
   }
 }
