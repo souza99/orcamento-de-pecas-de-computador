@@ -29,7 +29,7 @@ class ValidacaoCompatibilidadeAplicacao {
     validacaoCompatibilidade = ValidacaoCompatibilidade(
         memoria: memoria,
         placaMae: placaMae,
-        placaVideo: placaVideo,
+        placaVideo: placaVideo, 
         processador: processador,
         enviaemails: enviaemails);
     return validacaoCompatibilidade.comparadorDePecas(emailOrcamentoDTO);
